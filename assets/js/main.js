@@ -50,10 +50,10 @@ var app = new Vue({
     console.log(this.qs, currentPath)
     try {
       if (currentPath === '/' || currentPath === '/index.html') {
-        const response = await apiRequest({ method: 'get', url: '' })
+        const response = await apiRequest({ method: 'get', url: 'watchlists' })
         this.watchlists = response.data
       } else if (currentPath === '/watchlist.html') {
-        const response = await apiRequest({ method: 'get', url: 'watchlist/' + qs._id })
+        const response = await apiRequest({ method: 'get', url: 'watchlists/' + qs._id })
         this.watchlist = response.data
 
         const stocks = this.watchlist.stocks
