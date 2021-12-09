@@ -53,6 +53,7 @@ var app = new Vue({
         const response = await apiRequest({ method: 'get', url: 'watchlists' })
         this.watchlists = response.data
       } else if (currentPath === '/watchlist.html' || currentPath === '/watchlist') {
+        console.log('watchlist')
         const response = await apiRequest({ method: 'get', url: 'watchlists/' + qs._id })
         this.watchlist = response.data
 
@@ -63,6 +64,7 @@ var app = new Vue({
           el.scrip_code = stocks[index]
           return el
         })
+        console.log('completed watchlist')
       } else if (currentPath === '/stock.html' || currentPath === '/stock') {
         // const stocksResponse = await apiRequest({ uriType: 'mc', url: `?scIdList=${stocks.join(',')}&scId=${stocks[0]}`  })
         // this.stocksData = stocksResponse.data.data
