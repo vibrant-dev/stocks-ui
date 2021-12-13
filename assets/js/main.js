@@ -45,6 +45,7 @@ var app = new Vue({
       stockEvents: [],
       dateFns,
       currentPath,
+      addStockCode: null,
     }
   },
   async created() {
@@ -92,6 +93,21 @@ var app = new Vue({
     }
   },
   methods: {
-    
+    async addStock() {
+      try {
+        console.log('sd', this.addStockCode)
+        console.log('hi', qs)
+  
+        const data = {
+          scrip_code: this.addStockCode,
+        }
+  
+        await apiRequest({ method: 'post', url: 'add-stock-to-watchlist/' + qs._id, data })
+
+        alert('Stock added successfully')
+      } catch (err) {
+        console.log(err)
+      }
+    }
   }
 })
